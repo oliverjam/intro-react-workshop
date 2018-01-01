@@ -103,7 +103,7 @@ React apps usually use a non-JavaScript syntax known as JSX to create elements. 
 Our example above becomes:
 
 ```jsx
-const title = <h1 className="title><span>Hello world!</span></h1>;
+const title = <h1 className="title"><span>Hello world!</span></h1>;
 ```
 
 Isn't that more readable? It's also almost exactly like the eventual HTML rendered on the page.
