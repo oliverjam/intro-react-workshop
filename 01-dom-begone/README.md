@@ -12,8 +12,8 @@ Here's an example of creating an element with some properties using the standard
 const root = document.getElementById('root');
 
 const title = document.createElement('h1');
-element.className = 'title';
-element.textContent = 'Hello world!';
+title.className = 'main-title';
+title.textContent = 'Hello world!';
 
 root.appendChild(title);
 ```
@@ -37,7 +37,7 @@ Now we can use our `createElement` function to do some of the annoying work for 
 
 ```js
 const root = document.getElementById('root');
-const title = createElement('h1', { className: 'title' }, 'Hello world!');
+const title = createElement('h1', { className: 'main-title' }, 'Hello world!');
 root.appendChild(title);
 ```
 
@@ -48,19 +48,19 @@ Of course this function is very rudimentary—it does no checking for valid HTML
 We could spend some time refining this, or we could take a look at React's `createElement` function:
 
 ```js
-const title = React.createElement('h1', { className: 'title' }, 'Hello world!');
+const title = React.createElement('h1', { className: 'main-title' }, 'Hello world!');
 ```
 
 The function's arguments are the same as before, but we aren't limited in the same ways. For example, we can pass as many children as we like, and they'll all be rendered as siblings:
 
 ```js
-const title = React.createElement('h1', { className: 'title' }, 'Hello world!', 'This will be another text node');
+const title = React.createElement('h1', { className: 'main-title' }, 'Hello world!', 'This will be another text node');
 ```
 
 We can also pass other elements as children:
 
 ```js
-const title = React.createElement('h1', { className: 'title' }, React.createElement('span', {}, 'Hello world!'));
+const title = React.createElement('h1', { className: 'main-title' }, React.createElement('span', {}, 'Hello world!'));
 ```
 
 ### Virtual DOM
@@ -72,7 +72,7 @@ If we log the `title` variable we just created we'll see that it's not actually 
   "$$typeof": Symbol(react.element)
   _owner: null
   key: null
-  props: { className: "title", children: "Hello world!" }
+  props: { className: "main-title", children: "Hello world!" }
   ref: null
   type: "h1"
 }
@@ -84,14 +84,14 @@ Since our `title` isn't actually a DOM element we need a special function to ren
 
 ```js
 const root = document.getElementById('root');
-const title = React.createElement('h1', { className: 'title' }, React.createElement('span', {}, 'Hello world!'));
+const title = React.createElement('h1', { className: 'main-title' }, React.createElement('span', {}, 'Hello world!'));
 ReactDOM.render(title, root);
 ```
 
 This will render:
 
 ```html
-<h1 class="title"><span>Hello world!</span></h1>
+<h1 class="main-title"><span>Hello world!</span></h1>
 ```
 
 You may be thinking that those `React.createElement` calls will become hellish to manage, especially you once you start nesting elements. This is where another killer React feature helps us out.
@@ -103,7 +103,7 @@ React apps usually use a non-JavaScript syntax known as JSX to create elements. 
 Our example above becomes:
 
 ```jsx
-const title = <h1 className="title"><span>Hello world!</span></h1>;
+const title = <h1 className="main-title"><span>Hello world!</span></h1>;
 ```
 
 Isn't that more readable? It's also almost exactly like the eventual HTML rendered on the page.
