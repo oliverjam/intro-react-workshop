@@ -113,3 +113,9 @@ There are a few caveats:
 1) We need to use Babel to turn our non-standard syntax into regular `React.createElement` function calls that the browser understands.
 2) Since we're in JS-land we can't use certain reserved words: `class="..."` becomes `className="..."`
 3) Similarly, pretty much all DOM attributes become camelCased: `tabindex="..."` becomes `tabIndex="..."`
+
+## Exercise
+
+1. Open `index.html` in your editor and browser. You should see the `<h1>` rendered to the page.
+2. Try rewriting the `React.createElement` call using JSX. You should see the same result on the page.
+3. Finally try logging the element and viewing the object in the console.
