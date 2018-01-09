@@ -34,14 +34,14 @@ ReactDOM.render(<Title />, root);
 // renders <h1>Hello world!</h1>
 ```
 
-#### Notes:
+#### Note:
 
 - React requires tags with no children to self close (ending with `/>`
 - React treats lowercase tag names as HTML and capitalised tags as components, so be sure to always capitalise your component variables.
 
 ### Customising components with props
 
-Since `props` is the object passed to `React.createElement` we can make use of this to customise our components. For example:
+Since `props` is the object passed to `React.createElement` we can make use of this to customise our components. It's the same way we were passing `className` to our HTML element earlier: `React.createElement(Title, { name: 'Mum' })`. The JSX equivalent would be `<Title name="Mum" />`. We then have access to these props in our component as a function parameter. For example:
 
 ```jsx
 const Title = props => <h1>Hello {props.name}</h1>;
@@ -64,3 +64,9 @@ const Title = props => <h1>Hello {props.name || 'world'}</h1>
 ReactDOM.render(<Title />, root);
 // `props.name` is undefined, so renders <h1>Hello world</h1>
 ```
+
+### Children
+
+Earlier we were passing a third argument to `React.createElement` (`children`). `children` is a prop like any other: `React.createElement('div', {}, 'Hello world!')` is the same as `React.createElement('div', { children: 'Hello world!'})`.
+
+We can pass children to our components just like HTML elements, by nesting the children within the tags. For example:
