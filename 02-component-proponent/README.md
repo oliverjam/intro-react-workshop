@@ -36,12 +36,12 @@ ReactDOM.render(<Title />, root);
 
 #### Note:
 
-- React requires tags with no children to self close (ending with `/>`
+- React requires tags with no children to self close (ending with `/>`)
 - React treats lowercase tag names as HTML and capitalised tags as components, so be sure to always capitalise your component variables.
 
 ### Customising components with props
 
-Since `props` is the object passed to `React.createElement` we can make use of this to customise our components. It's the same way we were passing `className` to our HTML element earlier: `React.createElement(Title, { name: 'Mum' })`. The JSX equivalent would be `<Title name="Mum" />`. We then have access to these props in our component as a function parameter. For example:
+The props parameter our component function receives is the same object we've been passing to `React.createElement`. We can make use of this to customise our components (`React.createElement(Title, { name: 'Mum' })`). The JSX equivalent is `<Title name="Mum" />`. We can use anything passed this way in our component:
 
 ```jsx
 const Title = props => <h1>Hello {props.name}</h1>;
@@ -69,4 +69,69 @@ ReactDOM.render(<Title />, root);
 
 Earlier we were passing a third argument to `React.createElement` (`children`). `children` is a prop like any other: `React.createElement('div', {}, 'Hello world!')` is the same as `React.createElement('div', { children: 'Hello world!'})`.
 
-We can pass children to our components just like HTML elements, by nesting the children within the tags. For example:
+Since `children` is a normal prop we use it in the same way:
+
+```jsx
+const Title = props => <h1>{props.children}</h1>;
+ReactDOM.render(<Title>Hello world</Title>)
+```
+
+It's worth noting that this syntax would render the same result:
+
+```jsx
+ReactDOM.render(<Title children="Hello world" />, root);
+```
+
+It's generally easier (and closer to HTML) to pass children between the tags.
+
+### Composition
+
+We can pass React components to each other as children. This unlocks one of React's most powerful ideas: composition. It means we can encapsulate functionality in a component and then wrap that component around whatever we like.
+
+Imagine we wanted a component that rendered some "card" features (border, box-shadow etc):
+
+```jsx
+const Card = props => <div className="card">{props.children}</div>;
+```
+
+We can now construct very readable interfaces by using our custom component:
+
+```jsx
+const ProductCard = props => (
+  <Card>
+    <h2>{props.name}</h2>
+    <p>{props.description}</p>
+  </Card>
+);
+
+ReactDOM.render(<ProductCard name="hummus" description="Hummus is real tasty", root);
+```
+
+The `<ProductCard>` component shouldn't have to care about the implementation details of a `<Card>`. This is a contrived example but you can have as much complexity as you like concealed behind a simple JSX tag, which gets very powerful.
+
+We don't have to use `children` for composition. Sometimes you need to ensure a child component will be rendered in the right place. You can use props for this:
+
+```jsx
+const SplitCard = props => (
+  <div className="card">
+    <div className="card__left">{props.left}</div>
+    <div className="card__right">{props.right}</div>
+  </div>
+);
+
+const Product = props => (
+  <div>
+    <h2>{props.name}</h2>
+    <p>{props.description}</p>
+  </div>
+);
+
+const Image = props => <img src={props.imgSrc} />;
+
+const ProductCard = props => (
+  <SplitCard
+    left={<Product name="hummus" description="I love hummus" />}
+    right={<Image src="/hummus-rules.gif" />}
+  />
+);
+```
