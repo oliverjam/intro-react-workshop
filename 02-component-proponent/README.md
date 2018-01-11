@@ -136,6 +136,8 @@ const ProductCard = props => (
 );
 ```
 
+Remember `<Image />` is turned into `React.createElement(Image, {})` by Babel, and `createElement` returns React elements, which are just JavaScript objects. It might look slightly weird but `<SplitCard right={<Img />} />` is fine because we're effectively passing an normal object as the `right` prop.
+
 ## Exercise
 
 1. Open index.html in your editor and browser. You should see the <h1> rendered to the page.
