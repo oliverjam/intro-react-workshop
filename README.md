@@ -15,4 +15,4 @@ This set-up simpler to jump into without having to learn about complex build-sys
 
 This is in no way a best practice, so please don't build a real app this way :)
 
-We'll look at Bundlers a bit later on, and will eventually modularise our code using [Parcel(http://parceljs.org/).
+We'll look at Bundlers a bit later on, and will eventually modularise our code using [Parcel](http://parceljs.org/).
