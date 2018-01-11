@@ -67,19 +67,19 @@ ReactDOM.render(<Title />, root);
 
 ### Children
 
-Earlier we were passing a third argument to `React.createElement` (`children`). `children` is a prop like any other: `React.createElement('div', {}, 'Hello world!')` is the same as `React.createElement('div', { children: 'Hello world!'})`.
+Earlier we were passing a third argument to `React.createElement` (`children`). `children` is a prop like any other: `React.createElement('div', {}, 'Hello world!')` is the same as `React.createElement('div', { children: 'Hello world!'})`. 
 
-Since `children` is a normal prop we use it in the same way:
+Children is a normal prop with a couple of extra privileges. It can be passed either like any other prop:
 
 ```jsx
 const Title = props => <h1>{props.children}</h1>;
-ReactDOM.render(<Title>Hello world</Title>)
+ReactDOM.render(<Title children="Hello world" />, root);
 ```
 
-It's worth noting that this syntax would render the same result:
+or between two tags just like in HTML:
 
 ```jsx
-ReactDOM.render(<Title children="Hello world" />, root);
+ReactDOM.render(<Title>Hello world</Title>)
 ```
 
 It's generally easier (and closer to HTML) to pass children between the tags.
