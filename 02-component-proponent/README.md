@@ -135,3 +135,9 @@ const ProductCard = props => (
   />
 );
 ```
+
+## Exercise
+
+1. Open index.html in your editor and browser. You should see the <h1> rendered to the page.
+2. Try creating your own component that takes some props and renders them.
+3. Render your new component to the page.
