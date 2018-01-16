@@ -5,7 +5,8 @@ An introductory workshop for FAC students to learn about React.
 ## Contents
 
 1. [React elements](/01-dom-begone)
-2. [React components](/02-component-proponent)
+2. [Functional components](/02-component-proponent)
+3. [Class-based components](/03-surpass-with-class)
 
 ### Note
 
