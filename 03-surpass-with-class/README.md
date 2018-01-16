@@ -24,37 +24,35 @@ We can take a look under the hood to see what we're actually dealing with here:
 
 ```jsx
 class Title extends React.Component {
-  render() {
-    return <h1>{this.props.children}</h1;
-  }
+  render() { return <h1>{this.props.children}</h1; }
 }
 
 const myTitle = <Title>Hello world</Title>
 
 console.log(myTitle);
-//{
-//  "$$typeof": Symbol(react.element),
-//  _owner: null,
-//  _self: null,
-//  _source: null,
-//  _store: {},
-//  key: null,
-//  props: { children: "Hello world" },
-//  ref: null,
-//  type: Title()
-//}
+{
+  "$$typeof": Symbol(react.element),
+  _owner: null,
+  _self: null,
+  _source: null,
+  _store: {},
+  key: null,
+  props: { children: "Hello world" },
+  ref: null,
+  type: Title()
+}
 
 console.log(new Title({ children: 'hummus'}));
-//{
-//  context: undefined,
-//  props: { children: 'hummus' },
-//  refs: {},
-//  state: { toggled: false },
-//  updater: {}
-//}
+{
+  context: undefined,
+  props: { children: 'hummus' },
+  refs: {},
+  state: { toggled: false },
+  updater: {}
+}
 ```
 
-So if we use JSX to create a React Element it results in the element object we saw in part 1. But if we initialise the class by calling it as a constructor and passing in some props we get an object with the relevant properties we added to the class (and some that we aren't using yet).
+So if we use JSX to create a React Element it results in the element object we saw in part 1. But if we initialise the class by calling it as a constructor we can see how React represents it internally. We get an object with the relevant properties we added to the class (and some that we aren't using yet, like refs).
 
 ### State
 
@@ -150,7 +148,7 @@ class Toggle extends React.Component {
 }
 ```
 
-We are using `&&` to ensure that we only render the second statement if the first is true. Another common pattern is to use a ternary operator: `{this.state.toggled ? 'Toggled on' : 'Toggled off'}`.
+We are using `&&` to ensure that we only render the second statement if the first is true. Another common pattern is to use a ternary operator to either render one thing or another based on the state.
 
 You may notice we have no way to actually change the state. We need to create a button with a click-handler that calls our `toggle` method. You can pass events to React elements as props: they start with 'on' and end with the event name (e.g. `onClick`, `onChange`, `onMouseEnter` etc).
 
@@ -167,7 +165,7 @@ class Toggle extends React.Component {
   render() {
     return (
       <div>
-        <button onClick={this.toggle}>Toggle {this.state.toggled ? 'Off' : 'On'}</button>
+        <button onClick={this.toggle}>Toggle</button>
         {this.state.toggled && <p>Hidden toggle-able text</p>}
       </div>
     )
@@ -247,7 +245,7 @@ class Toggle extends React.Component {
   render() {
     return (
       <div>
-        <button onClick={this.toggle}>Toggle {this.state.toggled ? 'Off' : 'On'}</button>
+        <button onClick={this.toggle}>Toggle</button>
         {this.state.toggled && <p>Hidden toggle-able text</p>}
       </div>
     )
@@ -259,5 +257,6 @@ Can you see how the JSX in our render method _describes_ how we want the UI to l
 
 ## Exercise
 
-1. Open `index.html` in your editor and browser. Take
-````
+1. Open `index.html` in your editor and browser. You should see the toggle component.
+2. Try to make the button display what it's about to do (e.g. "Toggle on" or "Toggle off").
+3. Try making your own class-based component with state (copy/paste is cheating).

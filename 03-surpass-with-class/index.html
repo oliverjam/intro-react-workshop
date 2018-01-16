@@ -12,42 +12,30 @@
     <div id="root"></div>
 
     <script type="text/babel">
-    const root = document.getElementById('root');
+      const root = document.getElementById('root');
 
-class Title extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { toggled: false };
-  }
-  render() {
-    return <h1>{this.props.children}</h1>;
-  }
-}
+      class Toggle extends React.Component {
+        state = {
+          toggled: false,
+        };
+        toggle = () => {
+          this.setState((prevState, props) => {
+            return { toggled: !prevState.toggled };
+          });
+        };
+        render() {
+          return (
+            <div>
+              <button onClick={this.toggle}>
+                Toggle {this.state.toggled ? 'Off' : 'On'}
+              </button>
+              {this.state.toggled && <p>Hidden toggle-able text</p>}
+            </div>
+          );
+        }
+      }
 
-class Toggle extends React.Component {
-  state = {
-    toggled: false,
-  };
-  toggle = () => {
-    this.setState((prevState, props) => {
-      return { toggled: !prevState.toggled };
-    });
-  };
-  render() {
-    return (
-      <div>
-        <button onClick={this.toggle}>
-          Toggle {this.state.toggled ? 'Off' : 'On'}
-        </button>
-        {this.state.toggled && <p>Hidden toggle-able text</p>}
-      </div>
-    );
-  }
-}
-
-// console.log('Component: ', <Toggle />);
-
-ReactDOM.render(<Toggle />, root);
-</script>
+      ReactDOM.render(<Toggle />, root);
+    </script>
   </body>
 </html>
