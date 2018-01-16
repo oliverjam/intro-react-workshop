@@ -7,6 +7,7 @@ An introductory workshop for FAC students to learn about React.
 1. [React elements](/01-dom-begone)
 2. [Functional components](/02-component-proponent)
 3. [Class-based components](/03-surpass-with-class)
+4. [Lifecycle methods](/04-vital-lifecycle)
 
 ### Note
 
