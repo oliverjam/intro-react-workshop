@@ -1,20 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
   <meta charset="utf-8">
-  <title>02 Component Proponent | FAC React</title>
+  <title>03 Surpass With Class | FAC React</title>
   <body>
     <!-- These scripts will make React and ReactDOM globally available. -->
-    <script src="https://unpkg.com/react@16.0.0/umd/react.development.js"></script>
-    <script src="https://unpkg.com/react-dom@16.0.0/umd/react-dom.development.js"></script>
+    <script src="./../assets/react@16.0.0/umd/react.development.js"></script>
+    <script src="./../assets/react-dom@16.0.0/umd/react-dom.development.js"></script>
     <!-- This will let us write JSX and ES6 in a script tag with a special type of "text/babel" -->
-    <script src="https://unpkg.com/babel-standalone@6.26.0/babel.js"></script>
-    
+    <script src="./../assets/babel-standalone@6.26.0/babel.js"></script>
+
     <div id="root"></div>
-    
+
     <script type="text/babel">
-      const root = document.getElementById('root');
-      const title = props => <h1>{props.children}</h1>;
-      ReactDOM.render(<Title>Hello world</Title>, root);
-    </script>
+    const root = document.getElementById('root');
+
+class Title extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { toggled: false };
+  }
+  render() {
+    return <h1>{this.props.children}</h1>;
+  }
+}
+
+class Toggle extends React.Component {
+  state = {
+    toggled: false,
+  };
+  toggle = () => {
+    this.setState((prevState, props) => {
+      return { toggled: !prevState.toggled };
+    });
+  };
+  render() {
+    return (
+      <div>
+        <button onClick={this.toggle}>
+          Toggle {this.state.toggled ? 'Off' : 'On'}
+        </button>
+        {this.state.toggled && <p>Hidden toggle-able text</p>}
+      </div>
+    );
+  }
+}
+
+// console.log('Component: ', <Toggle />);
+
+ReactDOM.render(<Toggle />, root);
+</script>
   </body>
 </html>
