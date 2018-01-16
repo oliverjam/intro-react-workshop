@@ -91,3 +91,9 @@ class ErrorBoundary {
   }
 }
 ```
+
+## Holy shit
+
+Yeah there are a lot of these. Don't worry about it—I've been writing React for a year and I've only used 4/9 of them. It's easy to look them up in the [React docs](https://reactjs.org/docs/react-component.html) when you think you need one.
+
+Just try to understand and remember `componentDidMount` and `componentWillUnmount` for now.
