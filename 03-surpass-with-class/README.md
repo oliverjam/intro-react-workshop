@@ -171,6 +171,8 @@ class Toggle extends React.Component {
 
 We are using `&&` to ensure that we only render the second statement if the first is true. Another common pattern is to use a ternary operator to either render one thing or another based on the state.
 
+#### Event handlers
+
 You may notice we have no way to actually change the state. We need to create a button with a click-handler that calls our `toggle` method. You can pass events to React elements as props: they start with 'on' and end with the event name (e.g. `onClick`, `onChange`, `onMouseEnter` etc).
 
 ```jsx
@@ -196,13 +198,13 @@ class Toggle extends React.Component {
 
 Unfortunately this will currently throw an error: `this is undefined`.
 
-### We need to talk about `this`
+#### We need to talk about `this`
 
 This is a common problem with class-based components. React does not automatically bind your event handlers (like our `toggle` method) to your component instance, because they don't always come from that component. It's quite common to pass these as props to allow children to update their parent's state, in which case you wouldn't want `this` to point at the child.
 
 Practically what this means is you need to make sure `this` is bound correctly. There are lots of ways of doing this:
 
-#### Using inline arrow functions
+##### Using inline arrow functions
 
 An arrow function defined inline will pass its classes context to your method.
 
@@ -220,7 +222,7 @@ class Toggle extends React.Component {
 }
 ```
 
-#### Binding in the constructor
+##### Binding in the constructor
 
 You'll see this a lot: we create a new function from the old method, but _bound_ to the class instance.
 
@@ -235,7 +237,7 @@ class Toggle extends React.Component {
 }
 ```
 
-#### Using ES7 class properties
+##### Using ES7 class properties
 
 This requires the least extra code, using a new class feature from ES7. We can create an arrow function as a class property in the same way we were adding our `state` before:
 
