@@ -24,7 +24,9 @@ We can take a look under the hood to see what we're actually dealing with here:
 
 ```jsx
 class Title extends React.Component {
-  render() { return <h1>{this.props.children}</h1; }
+  render() {
+    return <h1>{this.props.children}</h1;
+  }
 }
 
 const myTitle = <Title>Hello world</Title>
@@ -76,14 +78,14 @@ class Toggle extends React.Component {
 
 We have a constructor (which takes `props` as an argument if you need to use them in initialising your component). Inside the constructor we create a property called `state`, which is an object with whatever key/value pairs we need.
 
-There is a simpler way to do this using the instance properties proposal (which Babel will transpile for us):
+There is a simpler way to do this using the ES7 class properties proposal (which Babel will transpile for us):
 
 ```jsx
 class Toggle extends React.Component {
   state = {
     toggled: false
   }
-  render() {..}
+  render() {...}
 }
 ```
 
