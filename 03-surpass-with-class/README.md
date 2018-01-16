@@ -98,9 +98,9 @@ React provides all classes with a `setState` method. We can use this two ways:
 1. If we're simply updating the state we can pass a new state object as the argument.
 2. If we're basing the new state on the old state we can pass a function that receives the old state and props and returns the new state.
 
-Example 1:
+##### Example 1:
 
-````jsx
+```jsx
 class Toggle extends React.Component {
   state = {
     toggled: false
@@ -111,7 +111,8 @@ class Toggle extends React.Component {
 }
 ```
 
-Example 2:
+##### Example 2:
+
 ```jsx
 class Toggle extends React.Component {
   state = {
