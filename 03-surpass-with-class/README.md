@@ -127,6 +127,24 @@ class Toggle extends React.Component {
 }
 ```
 
+##### After state updates
+
+It's worth highlighting that `setState` is asynchronous. React will batch these calls up, so you can't rely on state being updated immediately. If you need something to only happen after a state update you can pass a callback as a second argument to `setState`:
+
+```jsx
+class Toggle extends React.Component {
+  state = {
+    toggled: false
+  }
+  toggle() {
+    this.setState({ toggled: true }, () => {
+      // do something relying on the state update in here
+    });
+  }
+  render() {...}
+}
+```
+
 ### Rendering based on state
 
 Now that we have our state updating we can use it to describe our UI:
