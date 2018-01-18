@@ -67,7 +67,7 @@ ReactDOM.render(<Title />, root);
 
 ### Children
 
-Earlier we were passing a third argument to `React.createElement` (`children`). `children` is a prop like any other: `React.createElement('div', {}, 'Hello world!')` is the same as `React.createElement('div', { children: 'Hello world!'})`. 
+Earlier we were passing a third argument to `React.createElement` (`children`). `children` is a prop like any other: `React.createElement('div', {}, 'Hello world!')` is the same as `React.createElement('div', { children: 'Hello world!'})`.
 
 Children is a normal prop with a couple of extra privileges. It can be passed either like any other prop:
 
@@ -137,6 +137,70 @@ const ProductCard = props => (
 ```
 
 Remember `<Image />` is turned into `React.createElement(Image, {})` by Babel, and `createElement` returns React elements, which are just JavaScript objects. It might look slightly weird but `<SplitCard right={<Img />} />` is fine because we're effectively passing an normal object as the `right` prop.
+
+### Splitting up components
+
+Imagine we had a chunk of HTML like this representing a blog post excerpt:
+
+```html
+<article class="post">
+  <heading class="post__heading">
+    <h2 class="post__title">Everyone should eat hummus</h2>
+    <span class="post__subtitle">Hummus is the best</span>
+  </heading>
+  <div class="post__body">
+    <p class="post__summary">This easy dip recipe is great to make sandwiches for your lunchbox, or simply to serve with breadsticks or pitta</p>
+  </div>
+  <footer class="post__footer">
+    <span>Posted at <time datetime="2018-01-18">18th January, 2018</span>
+  </footer>
+</article>
+```
+
+We might have lots of these on a single page, which would get pretty unwieldy to read through and work with. We could insert this HTML straight into a React component, but it would be better if we could break this large component down into smaller parts:
+
+```jsx
+const Heading = props => (
+  <heading className="post__heading">
+    <h2 className="post__title">{props.title}</h2>
+    <span className="post__subtitle">{props.subtitle}</span>
+  </heading>
+);
+
+const Body = props => (
+  <div className="post__body">
+    <p className="post__summary">{props.children}</p>
+  </div>
+);
+
+const Footer = props => (
+  <footer className="post__footer">
+    <span>Posted at <time datetime={props.time}>{props.time.toLocaleDateString()}</span>
+  </footer>
+);
+```
+
+We can them compose our Post component together from these parts:
+
+```jsx
+const Post = props => (
+  <article className="post">
+    <Heading title={props.title} subtitle={props.subtitle} />
+    <Body>{props.children}</body>
+    <Footer time={props.time} />
+  </article>
+);
+
+const HummusPost = <Post
+                    title="Everyone should eat hummus"
+                    subtitle="Hummus is the best"
+                    time="2018-01-18"
+                    >
+                    This easy dip recipe is great to make sandwiches for your lunchbox, or simply to serve with breadsticks or pitta
+                    </Post>
+```
+
+Our Post component is easier to understand at a glance, with more meaningful tag names than the standard HTML. We've also encapsulated some of the implementation noise (like the ugly BEM classes) and made it easier to feed data into the component.
 
 ## Exercise
 
