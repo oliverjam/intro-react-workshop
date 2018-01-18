@@ -206,7 +206,7 @@ Practically what this means is you need to make sure `this` is bound correctly. 
 
 ##### Using inline arrow functions
 
-An arrow function defined inline will pass its classes context to your method.
+An arrow function defined inline will pass the class's context to your method.
 
 ```jsx
 class Toggle extends React.Component {
