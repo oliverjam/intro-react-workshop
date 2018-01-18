@@ -186,7 +186,7 @@ We can them compose our Post component together from these parts:
 const Post = props => (
   <article className="post">
     <Heading title={props.title} subtitle={props.subtitle} />
-    <Body>{props.children}</body>
+    <Body>{props.children}</Body>
     <Footer time={props.time} />
   </article>
 );
