@@ -152,7 +152,7 @@ Imagine we had a chunk of HTML like this representing a blog post excerpt:
     <p class="post__summary">This easy dip recipe is great to make sandwiches for your lunchbox, or simply to serve with breadsticks or pitta</p>
   </div>
   <footer class="post__footer">
-    <span>Posted at <time datetime="2018-01-18">18th January, 2018</span>
+    <span>Posted at <time datetime="2018-01-18">18th January, 2018</time></span>
   </footer>
 </article>
 ```
@@ -175,7 +175,7 @@ const Body = props => (
 
 const Footer = props => (
   <footer className="post__footer">
-    <span>Posted at <time datetime={props.time}>{props.time.toLocaleDateString()}</span>
+    <span>Posted at <time datetime={props.time}>{props.time.toLocaleDateString()}</time></span>
   </footer>
 );
 ```
