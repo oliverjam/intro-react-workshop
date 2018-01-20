@@ -119,3 +119,5 @@ There are a few caveats:
 1. Open `index.html` in your editor and browser. You should see the `<h1>` rendered to the page.
 2. Try rewriting the `React.createElement` call using JSX. You should see the same result on the page.
 3. Finally try logging the element and viewing the object in the console.
+
+Next: [Functional components](/02-component-proponent)

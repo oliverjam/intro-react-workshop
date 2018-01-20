@@ -283,3 +283,5 @@ Can you see how the JSX in our render method _describes_ how we want the UI to l
 1. Open `index.html` in your editor and browser. You should see the toggle component.
 2. Try to make the button display what it's about to do (e.g. "Toggle on" or "Toggle off").
 3. Try making your own class-based component with state (copy/paste is cheating).
+
+Next: [Forms in React](/04-storm-the-form)

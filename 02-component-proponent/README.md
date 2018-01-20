@@ -211,3 +211,5 @@ Our Post component is easier to understand at a glance, with more meaningful tag
 1. Open index.html in your editor and browser. You should see the <h1> rendered to the page.
 2. Try creating your own component that takes some props and renders them.
 3. Render your new component to the page.
+
+Next: [Class-based components](/03-surpass-with-class)
