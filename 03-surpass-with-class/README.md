@@ -278,6 +278,45 @@ class Toggle extends React.Component {
 
 Can you see how the JSX in our render method _describes_ how we want the UI to look? We don't have to write code telling the browser _how_ to update anything, we just show how it should look for each state and provide a way for state to update.
 
+### Lifecycle Methods
+
+React goes through a whole cycle of stages when rendering a component. We can hook into this with a component's "lifecycle" methods to ensure our code runs at the correct time.
+
+I won't list every method here because there are quite a few and it can be overwhelming. I've been writing React for a year and I've only used 3 or 4 of them. It's easy to look them up in the [React component docs](https://reactjs.org/docs/react-component.html) when you think you need one.
+
+Here are a couple you'll use a fair amount:
+
+#### `componentDidMount`
+
+This is called right after React mounts your component, so you can do things involving the DOM in here. For example if you need to measure the width or position of a modal before rendering it you can do so here.
+
+This method is often used to fetch data required for initially rendering the component:
+
+```jsx
+class Profile extends React.Component {
+  state = {
+    loading: false,
+    data: {}
+  }
+  componentDidMount() {
+    this.setState({ loading: true});
+    fetch('https://api.com/user')
+      .then(res => this.setState({ data: res.data, loading: false }))
+  }
+  render() {
+    return (
+      <div>
+        {this.state.loading ? 'Loading...': <img src={this.state.data.imgUrl}} />
+      </div>
+    )
+  }
+}
+```
+
+#### `componentDidUnmount`
+
+This one is useful for cleaning up after yourself. Anything that shouldn't continue once the component is gone should be removed here. For example you can clear timers/intervals here (so they don't keep running after the component is gone), or cancel network requests that are still pending.
+
 ## Exercise
 
 1. Open `index.html` in your editor and browser. You should see the toggle component.
