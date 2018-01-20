@@ -10,7 +10,7 @@ Generally we use a technique called "controlled components" to keep our input st
 class Form extends React.Component {
   state = {
     input: '',
-  };
+  }
   render() {
     return (
       <form>
@@ -29,11 +29,11 @@ We set the `value` prop of our `<input />` to be the correct entry in our state.
 class Form extends React.Component {
   state = {
     input: '',
-  };
+  }
   handleChange = event => {
     const value = event.target.value;
     this.setState({ input: value });
-  };
+  }
   render() {
     return (
       <form>
@@ -72,46 +72,48 @@ These inputs are controlled with a `checked` prop instead of `value`. `checked` 
 ```jsx
 class Form extends React.Component {
   state = {
-    radioSelected: '',
-  };
+    radioSelected: 'phone',
+  }
   handleChange = event => {
     const value = event.target.value;
     this.setState({ radioSelected: value });
-  };
+  }
   render() {
-    <form>
-      <label htmlFor="phone">Phone</label>
-      <input
-        type="radio"
-        id="phone"
-        name="contact"
-        value="phone"
-        checked={this.state.radioSelected === 'phone'}
-        onChange={this.handleChange}
-      />
+    return (
+      <form>
+        <label htmlFor="phone">Phone</label>
+        <input
+          type="radio"
+          id="phone"
+          name="contact"
+          value="phone"
+          checked={this.state.radioSelected === 'phone'}
+          onChange={this.handleChange}
+        />
 
-      <label htmlFor="email">Email</label>
-      <input
-        type="radio"
-        id="email"
-        name="contact"
-        value="email"
-        checked={this.state.radioSelected === 'email'}
-        onChange={this.handleChange}
-      />
+        <label htmlFor="email">Email</label>
+        <input
+          type="radio"
+          id="email"
+          name="contact"
+          value="email"
+          checked={this.state.radioSelected === 'email'}
+          onChange={this.handleChange}
+        />
 
-      <label htmlFor="post">Post</label>
-      <input
-        type="radio"
-        id="post"
-        name="contact"
-        value="post"
-        checked={this.state.radioSelected === 'post'}
-        onChange={this.handleChange}
-      />
+        <label htmlFor="post">Post</label>
+        <input
+          type="radio"
+          id="post"
+          name="contact"
+          value="post"
+          checked={this.state.radioSelected === 'post'}
+          onChange={this.handleChange}
+        />
 
-      <button type="submit">Submit</button>
-    </form>;
+        <button type="submit">Submit</button>
+      </form>
+    )
   }
 }
 ```
@@ -126,12 +128,12 @@ class Form extends React.Component {
     name: '',
     email: '',
     consent: false,
-  };
+  }
   handleChange = event => {
     const target = event.target;
     const value = target.type === 'checkbox' ? target.checked : target.value;
     this.setState({ [name]: value });
-  };
+  }
   render() {
     return (
       <form>
@@ -179,12 +181,8 @@ class Form extends React.Component {
     name: '',
     email: '',
     consent: false,
-  };
-  handleChange = event => {
-    const target = event.target;
-    const value = target.type === 'checkbox' ? target.checked : target.value;
-    this.setState({ [name]: value });
-  };
+  }
+  handleChange = event => {...}
   handleSubmit = event => {
     event.preventDefault();
     const data = JSON.stringify(this.state);
@@ -193,38 +191,11 @@ class Form extends React.Component {
       body: data,
     });
     this.setState({ name: '', email: '', consent: false });
-  };
+  }
   render() {
     return (
       <form onSubmit={this.handleSubmit}>
-        <label htmlFor="name">Name:</label>
-        <input
-          type="text"
-          id="name"
-          name="name"
-          value={this.state.input}
-          onChange={this.handleChange}
-        />
-
-        <label htmlFor="email">Email:</label>
-        <input
-          type="email"
-          id="email"
-          name="email"
-          value={this.state.input}
-          onChange={this.handleChange}
-        />
-
-        <label htmlFor="consent">Can we email you spam?</label>
-        <input
-          type="checkbox"
-          id="consent"
-          name="consent"
-          checked={this.state.consent}
-          onChange={this.handleChange}
-        />
-
-        <button type="submit">Submit</button>
+        ...
       </form>
     );
   }
