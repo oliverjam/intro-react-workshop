@@ -173,7 +173,7 @@ class Form extends React.Component {
 
 ### Form submission
 
-Forms take an `onSubmit` event handler. It's much easier to get our input data now that it's all in state—we just have to grab it and do what we want with it:
+Forms take an `onSubmit` event handler. It's much easier to get our input data now that it's all in state—we just have to grab it and do what we want with it. Don't forget to reset everything after you submit!
 
 ```jsx
 class Form extends React.Component {
@@ -202,7 +202,7 @@ class Form extends React.Component {
 }
 ```
 
-#### Finally note:
+#### Final note:
 
 You may have noticed we've been using `htmlFor` on our labels, instead of `for`. This is another JSX difference you just have to remember—`for` is a reserved word in JS so we can't use it.
 
