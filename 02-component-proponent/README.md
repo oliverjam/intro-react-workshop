@@ -18,6 +18,10 @@ We could also use arrow functions to simplify this:
 const Title = props => <h1>Hello world!</h1>;
 ```
 
+#### Note:
+
+React components should act like pure functions with respect to their props. Don't try to change the props from within the component. Props should only get updated by a component higher up the tree passing new props in (which is equivalent to calling the component function again with new arguments).
+
 ### Rendering components
 
 So how do we render them? Elements can represent either HTML elements or user-defined components. Unlike our naive `createElement` function from part 1, `React.createElement` can take more than an HTML tag name as the first argument. It can also take a React component as a variable. For example, if we have created the `Title` component from above:
