@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <meta charset="utf-8">
+  <title>Top-notch stopwatch | FAC React</title>
+  <body>
+    <!-- These scripts will make React and ReactDOM globally available. -->
+    <script src="./../assets/react@16.0.0/umd/react.development.js"></script>
+    <script src="./../assets/react-dom@16.0.0/umd/react-dom.development.js"></script>
+    <!-- This will let us write JSX and ES6 in a script tag with a special type of "text/babel" -->
+    <script src="./../assets/babel-standalone@6.26.0/babel.js"></script>
+
+    <div id="root"></div>
+
+    <script type="text/babel">
+      const root = document.getElementById('root');
+
+      class Stopwatch extends React.Component {
+        state = {
+          hidden: false,
+          running: false,
+          time: 0
+        }
+        toggle = () => {
+          this.setState((prevState, props) => {
+            if (prevState.running) {
+              clearInterval(this.timer);
+            } else {
+              const startTime = Date.now() - this.state.time;
+              this.timer = setInterval(() => {
+                console.log(Date.now() - this.state.time)
+                this.setState({ time: Date.now() - startTime });
+              }, 0);
+            }
+            return { running: !prevState.running };
+            }
+          )
+        }
+        clear = () => {
+          clearInterval(this.timer);
+          this.setState({ running: false, time: 0 });
+        }
+        render() {
+          return (
+            <div>
+              <div>{this.state.time}</div>
+              <button onClick={this.toggle}>
+                {this.state.running ? 'Pause' : 'Start'}
+              </button>
+              <button onClick={this.clear}>Clear</button>
+            </div>
+          );
+        }
+      }
+
+      class Toggle extends React.Component {
+        state = { toggled: false }
+        toggle = () => {
+          this.setState(prevState => {
+            return { toggled: !prevState.toggled};
+          });
+        }
+        render() {
+          return (
+            <div>
+              <button onClick={this.toggle}>
+                {this.state.toggled ? 'Show' : 'Hide'}
+              </button>
+              {!this.state.toggled && this.props.children}
+            </div>
+          )
+        }
+      }
+
+      const App = () => (
+        <Toggle>
+          <Stopwatch />
+        </Toggle>
+      );
+
+      ReactDOM.render(<App />, root);
+    </script>
+  </body>
+</html>
