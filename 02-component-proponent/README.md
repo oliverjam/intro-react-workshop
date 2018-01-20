@@ -213,3 +213,8 @@ Our Post component is easier to understand at a glance, with more meaningful tag
 3. Render your new component to the page.
 
 Next: [Class-based components](/03-surpass-with-class)
+
+## Further Reading
+
+- [Components and Props | React Docs](https://reactjs.org/docs/components-and-props.html)
+- [Composition vs Inheritance | React Docs](https://reactjs.org/docs/composition-vs-inheritance.html)

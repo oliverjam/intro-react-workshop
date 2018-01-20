@@ -285,3 +285,9 @@ Can you see how the JSX in our render method _describes_ how we want the UI to l
 3. Try making your own class-based component with state (copy/paste is cheating).
 
 Next: [Forms in React](/04-storm-the-form)
+
+## Further Reading
+
+- [State and Lifecycle | React Docs](https://reactjs.org/docs/state-and-lifecycle.html)
+- [Handling Events | React Docs](https://reactjs.org/docs/handling-events.html)
+- [Conditional Rendering | React Docs](https://reactjs.org/docs/conditional-rendering.html)

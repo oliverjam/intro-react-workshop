@@ -121,3 +121,8 @@ There are a few caveats:
 3. Finally try logging the element and viewing the object in the console.
 
 Next: [Functional components](/02-component-proponent)
+
+## Further Reading
+
+- [Rendering Elements | React Docs](https://reactjs.org/docs/rendering-elements.html)
+- [JSX In Depth | React Docs](https://reactjs.org/docs/jsx-in-depth.html)

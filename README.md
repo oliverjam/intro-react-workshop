@@ -18,3 +18,10 @@ This set-up simpler to jump into without having to learn about complex build-sys
 This is in no way a best practice, so please don't build a real app this way :)
 
 We'll look at Bundlers a bit later on, and will eventually modularise our code using [Parcel](http://parceljs.org/).
+
+## Bonus Reading
+
+If you're finished early check out these entries in the React Docs. They give a slightly higher-level look at how you should think about building React apps:
+
+1. [Lifting State Up](https://reactjs.org/docs/lifting-state-up.html)
+2. [Thinking In React](https://reactjs.org/docs/thinking-in-react.html)
