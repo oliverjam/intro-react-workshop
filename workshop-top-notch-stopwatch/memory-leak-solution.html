@@ -16,6 +16,7 @@
 
       class Stopwatch extends React.Component {
         state = {
+          hidden: false,
           running: false,
           time: 0
         }
@@ -51,7 +52,32 @@
         }
       }
 
-      ReactDOM.render(<Stopwatch />, root);
+      class Toggle extends React.Component {
+        state = { toggled: false }
+        toggle = () => {
+          this.setState(prevState => {
+            return { toggled: !prevState.toggled};
+          });
+        }
+        render() {
+          return (
+            <div>
+              <button onClick={this.toggle}>
+                {this.state.toggled ? 'Show' : 'Hide'}
+              </button>
+              {!this.state.toggled && this.props.children}
+            </div>
+          )
+        }
+      }
+
+      const App = () => (
+        <Toggle>
+          <Stopwatch />
+        </Toggle>
+      );
+
+      ReactDOM.render(<App />, root);
     </script>
   </body>
 </html>
