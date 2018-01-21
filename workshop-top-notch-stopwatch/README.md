@@ -2,6 +2,8 @@
 
 The goal is to build a timer that you can start, pause and reset back to 0.
 
+![](https://user-images.githubusercontent.com/9408641/35197215-471a50b4-fed4-11e7-938a-0730ef1ae1c4.gif)
+
 Write your code in `index.html` (no peaking in the solution files for now!)
 
 **Hint 1:** You're going to need `componentDidMount`
