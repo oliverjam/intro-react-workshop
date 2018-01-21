@@ -8,6 +8,7 @@ An introductory workshop for FAC students to learn about React.
 2. [Functional components](/02-component-proponent)
 3. [Class-based components](/03-surpass-with-class)
 4. [Forms in React](/04-storm-the-form)
+5. [Stopwatch Workshop](/workshop-top-notch-stopwatch)
 
 ### Note
 
