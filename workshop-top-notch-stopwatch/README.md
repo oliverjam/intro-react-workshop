@@ -6,7 +6,10 @@ The goal is to build a timer that you can start, pause and reset back to 0.
 
 Write your code in `index.html` (no peaking in the solution files for now!)
 
-**Hint 1:** You're going to need `componentDidMount`
+<details>
+  <summary><strong>Hint 1:</strong></summary>
+  <p>You're going to need `componentDidMount`</p>
+</details>
 
 <details>
   <summary><strong>Hint 2:</strong></summary>
