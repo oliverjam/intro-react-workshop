@@ -7,7 +7,7 @@ Write your code in `index.html` (no peaking in the solution files for now!)
 **Hint 1:** You're going to need `componentDidMount`
 
 <details>
-  <summary>**Hint 2:**</summary>
+  <summary><strong>Hint 2:</strong></summary>
   <p>If you haven't build timers in JavaScript before you might want to look at [setInterval](https://developer.mozilla.org/en-US/docs/Web/API/WindowOrWorkerGlobalScope/setInterval)
 </details>
 
