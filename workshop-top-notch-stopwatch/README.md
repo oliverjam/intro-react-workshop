@@ -8,11 +8,6 @@ Write your code in `index.html` (no peaking in the solution files for now!)
 
 <details>
   <summary><strong>Hint 1:</strong></summary>
-  <p>You're going to need `componentDidMount`</p>
-</details>
-
-<details>
-  <summary><strong>Hint 2:</strong></summary>
   <p>If you haven't build timers in JavaScript before you might want to look at [setInterval](https://developer.mozilla.org/en-US/docs/Web/API/WindowOrWorkerGlobalScope/setInterval)
 </details>
 
