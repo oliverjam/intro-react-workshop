@@ -214,7 +214,7 @@ Our Post component is easier to understand at a glance, with more meaningful tag
 
 Next: [Class-based components](/03-surpass-with-class)
 
-## Further Reading
+## Further Reading
 
 - [Components and Props | React Docs](https://reactjs.org/docs/components-and-props.html)
 - [Composition vs Inheritance | React Docs](https://reactjs.org/docs/composition-vs-inheritance.html)
