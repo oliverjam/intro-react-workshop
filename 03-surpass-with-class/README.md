@@ -261,6 +261,8 @@ class Toggle extends React.Component {
 
 Because arrow functions always get their context from where they were defined this `toggle` will have the correct `this`.
 
+Don't worry if `this` is confusing for now. We'll have a whole workshop on it another day.
+
 ### Finally...
 
 So here's our final fully functional toggle component:
@@ -331,7 +333,7 @@ This one is useful for cleaning up after yourself. Anything that shouldn't conti
 
 1. Open `index.html` in your editor and browser. You should see the toggle component.
 2. Try to make the button display what it's about to do (e.g. "Toggle on" or "Toggle off").
-3. Try making your own class-based component with state (copy/paste is cheating).
+3. Make your own class-based counter component that lets you increment and decrement a number.
 
 Next: [Forms in React](/04-storm-the-form)
 
