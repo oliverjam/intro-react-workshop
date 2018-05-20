@@ -113,7 +113,7 @@ The updater function can also take props if you need to use them to set the new 
 ```jsx
 class Counter extends React.Component {
   state = {
-    count: false
+    count: 0
   }
   inc() {
     this.setState((prevState, props) => {
