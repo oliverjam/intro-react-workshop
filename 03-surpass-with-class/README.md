@@ -93,16 +93,31 @@ That's it!
 
 #### Updating state
 
-React provides all classes with a `setState` method. You can pass it a function that takes the previous state (and props if you need them) and returns a new state object. This updater function ensures that your state is always updated correctly, as `setState` calls do not necessarily happen synchronously in order (React may batch them for performance).
+React provides all classes with a `setState` method. You can pass it a function that takes the previous state and returns a new state object. This updater function ensures that your state is always updated correctly, as `setState` calls do not necessarily happen synchronously in order (React may batch them for performance).
 
 ```jsx
 class Toggle extends React.Component {
   state = {
     toggled: false
   }
-  toggleOn() {
+  toggle() {
     this.setState(prevState => {
-      return { toggled: !prevState }
+      return { toggled: !prevState.toggled }
+    });
+  }
+}
+```
+
+The updater function can also take props if you need to use them to set the new state:
+
+```jsx
+class Counter extends React.Component {
+  state = {
+    count: false
+  }
+  inc() {
+    this.setState((prevState, props) => {
+      return { count: prevState.count + props.increment }
     });
   }
 }
