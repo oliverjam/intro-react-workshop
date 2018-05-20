@@ -62,7 +62,7 @@ To add interactivity we need to learn a new concept: state. React allows compone
 
 #### Creating state
 
-We'll worry about the render method in a moment. First lets look at how to give a component state:
+We'll worry about the render method in a moment. First lets look at how to give a component state—it is stored as an object on the class instance:
 
 ```jsx
 class Toggle extends React.Component {
@@ -78,7 +78,7 @@ class Toggle extends React.Component {
 
 We have a constructor (which takes `props` as an argument if you need to use them in initialising your component). Inside the constructor we create a property called `state`, which is an object with whatever key/value pairs we need.
 
-There is a simpler way to do this using the ES7 class properties proposal (which Babel will transpile for us):
+There is a simpler way to do this using the ES7 class properties proposal (which Babel will transpile for us). This lets us set properties directly on the class instance without needing a constructor:
 
 ```jsx
 class Toggle extends React.Component {
