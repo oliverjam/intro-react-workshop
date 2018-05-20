@@ -125,8 +125,6 @@ class Counter extends React.Component {
 
 If your update does not depend on the previous state then you can just pass a new state object instead of the updater function:
 
-##### Example 2:
-
 ```jsx
 class Toggle extends React.Component {
   state = {
@@ -167,7 +165,7 @@ class Toggle extends React.Component {
     toggled: false
   }
   toggle() {
-    this.setState((prevState, props) => {
+    this.setState(prevState => {
       return { toggled: !prevState.toggled };
     })
   }
@@ -185,7 +183,7 @@ We are using `&&` to ensure that we only render the second statement if the firs
 
 #### Event handlers
 
-You may notice we have no way to actually change the state. We need to create a button with a click-handler that calls our `toggle` method. You can pass events to React elements as props: they start with 'on' and end with the event name (e.g. `onClick`, `onChange`, `onMouseEnter` etc).
+You may notice we have no way to actually change the state. We need to create a button with a click-handler that calls our `toggle` method. You can pass event handlers to React elements as props: they start with 'on' and end with the event name (e.g. `onClick`, `onChange`, `onMouseEnter` etc).
 
 ```jsx
 class Toggle extends React.Component {
