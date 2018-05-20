@@ -93,12 +93,24 @@ That's it!
 
 #### Updating state
 
-React provides all classes with a `setState` method. We can use this two ways:
+React provides all classes with a `setState` method. You can pass it a function that takes the previous state (and props if you need them) and returns a new state object. This updater function ensures that your state is always updated correctly, as `setState` calls do not necessarily happen synchronously in order (React may batch them for performance).
 
-1. If we're simply updating the state we can pass a new state object as the argument.
-2. If we're basing the new state on the old state we can pass a function that receives the old state and props and returns the new state.
+```jsx
+class Toggle extends React.Component {
+  state = {
+    toggled: false
+  }
+  toggleOn() {
+    this.setState(prevState => {
+      return { toggled: !prevState }
+    });
+  }
+}
+```
 
-##### Example 1:
+If your update does not depend on the previous state then you can just pass a new state object instead of the updater function:
+
+##### Example 2:
 
 ```jsx
 class Toggle extends React.Component {
@@ -108,35 +120,20 @@ class Toggle extends React.Component {
   toggleOn() {
     this.setState({ toggled: true });
   }
-}
-```
-
-##### Example 2:
-
-```jsx
-class Toggle extends React.Component {
-  state = {
-    toggled: false
-  }
-  toggle() {
-    this.setState((prevState, props) => {
-      return { toggled: !prevState.toggled};
-    });
-  }
   render() {...}
 }
 ```
 
 ##### After state updates
 
-It's worth highlighting that `setState` is asynchronous. React will batch these calls up, so you can't rely on state being updated immediately. If you need something to only happen after a state update you can pass a callback as a second argument to `setState`:
+Since `setState` is async we can't rely on the update having happened before our next line of code. If you need something to only happen after a state update you can pass a callback as a second argument to `setState`:
 
 ```jsx
 class Toggle extends React.Component {
   state = {
     toggled: false
   }
-  toggle() {
+  toggleOn() {
     this.setState({ toggled: true }, () => {
       // do something relying on the state update in here
     });
