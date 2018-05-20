@@ -135,12 +135,12 @@ const Image = props => <img src={props.imgSrc} />;
 const ProductCard = props => (
   <SplitCard
     left={<Product name="hummus" description="I love hummus" />}
-    right={<Image src="/hummus-rules.gif" />}
+    right={<Image imgSrc="/hummus-rules.gif" />}
   />
 );
 ```
 
-Remember `<Image />` is turned into `React.createElement(Image, {})` by Babel, and `createElement` returns React elements, which are just JavaScript objects. It might look slightly weird but `<SplitCard right={<Img />} />` is fine because we're effectively passing an normal object as the `right` prop.
+Remember `<Image />` is turned into `React.createElement(Image, {})` by Babel, and `createElement` returns React elements, which are just JavaScript objects. It might look slightly weird but `<SplitCard right={<Image />} />` is fine because we're effectively passing an normal object as the `right` prop.
 
 ### Splitting up components
 
