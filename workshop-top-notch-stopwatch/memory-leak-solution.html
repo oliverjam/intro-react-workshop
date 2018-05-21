@@ -1,17 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
-  <meta charset="utf-8">
-  <title>Top-notch stopwatch | FAC React</title>
-  <body>
-    <!-- These scripts will make React and ReactDOM globally available. -->
-    <script src="./../assets/react@16.0.0/umd/react.development.js"></script>
-    <script src="./../assets/react-dom@16.0.0/umd/react-dom.development.js"></script>
-    <!-- This will let us write JSX and ES6 in a script tag with a special type of "text/babel" -->
-    <script src="./../assets/babel-standalone@6.26.0/babel.js"></script>
+<meta charset="utf-8">
+<title>Top-notch stopwatch | FAC React</title>
 
-    <div id="root"></div>
+<body>
+  <!-- These scripts will make React and ReactDOM globally available. -->
+  <script src="./../assets/react@16.0.0/umd/react.development.js"></script>
+  <script src="./../assets/react-dom@16.0.0/umd/react-dom.development.js"></script>
+  <!-- This will let us write JSX and ES6 in a script tag with a special type of "text/babel" -->
+  <script src="./../assets/babel-standalone@6.26.0/babel.js"></script>
 
-    <script type="text/babel">
+  <div id="root"></div>
+
+  <script type="text/babel">
       const root = document.getElementById('root');
 
       class Stopwatch extends React.Component {
@@ -24,9 +25,9 @@
             if (prevState.running) {
               clearInterval(this.timer);
             } else {
-              const startTime = Date.now() - this.state.time;
+              const startTime = Date.now() - prevState.time;
               this.timer = setInterval(() => {
-                console.log(Date.now() - this.state.time)
+                console.log(Date.now() - prevState.time)
                 this.setState({ time: Date.now() - startTime });
               }, 0);
             }
@@ -78,5 +79,6 @@
 
       ReactDOM.render(<App />, root);
     </script>
-  </body>
+</body>
+
 </html>
