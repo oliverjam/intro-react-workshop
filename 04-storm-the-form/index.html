@@ -1,17 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
-  <meta charset="utf-8">
-  <title>04 Storm the Form | FAC React</title>
-  <body>
-    <!-- These scripts will make React and ReactDOM globally available. -->
-    <script src="./../assets/react@16.0.0/umd/react.development.js"></script>
-    <script src="./../assets/react-dom@16.0.0/umd/react-dom.development.js"></script>
-    <!-- This will let us write JSX and ES6 in a script tag with a special type of "text/babel" -->
-    <script src="./../assets/babel-standalone@6.26.0/babel.js"></script>
+<meta charset="utf-8">
+<title>04 Storm the Form | FAC React</title>
 
-    <div id="root"></div>
+<body>
+  <!-- These scripts will make React and ReactDOM globally available. -->
+  <script src="./../assets/react@16.0.0/umd/react.development.js"></script>
+  <script src="./../assets/react-dom@16.0.0/umd/react-dom.development.js"></script>
+  <!-- This will let us write JSX and ES6 in a script tag with a special type of "text/babel" -->
+  <script src="./../assets/babel-standalone@6.26.0/babel.js"></script>
 
-    <script type="text/babel">
+  <div id="root"></div>
+
+  <script type="text/babel">
       const root = document.getElementById('root');
 
       class Form extends React.Component {
@@ -43,7 +44,7 @@
               <input
                 type="text"
                 id="firstName"
-                firstName="firstName"
+                name="firstName"
                 value={this.state.firstName}
                 onChange={this.handleChange}
               />
@@ -74,5 +75,6 @@
 
       ReactDOM.render(<Form />, root);
     </script>
-  </body>
+</body>
+
 </html>
