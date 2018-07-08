@@ -10,7 +10,7 @@ Generally we use a technique called "controlled components" to keep our input st
 class Form extends React.Component {
   state = {
     input: '',
-  }
+  };
   render() {
     return (
       <form>
@@ -29,11 +29,11 @@ We set the `value` prop of our `<input />` to be the correct entry in our state.
 class Form extends React.Component {
   state = {
     input: '',
-  }
+  };
   handleChange = event => {
     const value = event.target.value;
     this.setState({ input: value });
-  }
+  };
   render() {
     return (
       <form>
@@ -73,11 +73,11 @@ These inputs are controlled with a `checked` prop instead of `value`. `checked` 
 class Form extends React.Component {
   state = {
     radioSelected: 'phone',
-  }
+  };
   handleChange = event => {
     const value = event.target.value;
     this.setState({ radioSelected: value });
-  }
+  };
   render() {
     return (
       <form>
@@ -113,7 +113,7 @@ class Form extends React.Component {
 
         <button type="submit">Submit</button>
       </form>
-    )
+    );
   }
 }
 ```
@@ -128,12 +128,12 @@ class Form extends React.Component {
     name: '',
     email: '',
     consent: false,
-  }
+  };
   handleChange = event => {
     const target = event.target;
     const value = target.type === 'checkbox' ? target.checked : target.value;
     this.setState({ [name]: value });
-  }
+  };
   render() {
     return (
       <form>
@@ -142,7 +142,7 @@ class Form extends React.Component {
           type="text"
           id="name"
           name="name"
-          value={this.state.input}
+          value={this.state.name}
           onChange={this.handleChange}
         />
 
@@ -151,7 +151,7 @@ class Form extends React.Component {
           type="email"
           id="email"
           name="email"
-          value={this.state.input}
+          value={this.state.email}
           onChange={this.handleChange}
         />
 
@@ -208,10 +208,16 @@ You may have noticed we've been using `htmlFor` on our labels, instead of `for`.
 
 ## Exercise
 
+<<<<<<< HEAD
 1. Open `index.html` in your editor and browser.
 2. Open your browser console and then play around with the inputs. See what values get logged.
 3. Try removing the `onChange` prop from an input. See how you can't type anything anymore?
 3. Try logging different things, like the actual events—you'll see that React events are a bit different to built-in DOM events.
+=======
+1.  Open `index.html` in your editor and browser.
+2.  Open your browser console and then play around with the inputs. See what values get logged.
+3.  Try logging different things, like the actual events—you'll see that React events are a bit different.
+>>>>>>> Fix multiple input example code
 
 ## Further Reading
 
