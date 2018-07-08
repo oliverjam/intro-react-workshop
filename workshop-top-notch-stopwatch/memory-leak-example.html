@@ -39,6 +39,9 @@
           clearInterval(this.timer);
           this.setState({ running: false, time: 0 });
         }
+        // componentWillUnmount() {
+        //   clearInterval(this.timer);
+        // }
         render() {
           return (
             <div>

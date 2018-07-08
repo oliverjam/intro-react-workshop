@@ -208,16 +208,10 @@ You may have noticed we've been using `htmlFor` on our labels, instead of `for`.
 
 ## Exercise
 
-<<<<<<< HEAD
-1. Open `index.html` in your editor and browser.
-2. Open your browser console and then play around with the inputs. See what values get logged.
-3. Try removing the `onChange` prop from an input. See how you can't type anything anymore?
-3. Try logging different things, like the actual events—you'll see that React events are a bit different to built-in DOM events.
-=======
 1.  Open `index.html` in your editor and browser.
 2.  Open your browser console and then play around with the inputs. See what values get logged.
-3.  Try logging different things, like the actual events—you'll see that React events are a bit different.
->>>>>>> Fix multiple input example code
+3.  Try removing the `onChange` prop from an input. See how you can't type anything anymore?
+4.  Try logging different things, like the actual events—you'll see that React events are a bit different to built-in DOM events.
 
 ## Further Reading
 
