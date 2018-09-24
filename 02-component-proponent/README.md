@@ -108,7 +108,7 @@ const ProductCard = props => (
   </Card>
 );
 
-ReactDOM.render(<ProductCard name="hummus" description="Hummus is real tasty", root);
+ReactDOM.render(<ProductCard name="hummus" description="Hummus is real tasty" />, root);
 ```
 
 The `<ProductCard>` component shouldn't have to care about the implementation details of a `<Card>`. This is a contrived example but you can have as much complexity as you like concealed behind a simple JSX tag, which gets very powerful.
