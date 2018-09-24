@@ -132,7 +132,7 @@ class Form extends React.Component {
   handleChange = event => {
     const target = event.target;
     const value = target.type === 'checkbox' ? target.checked : target.value;
-    this.setState({ [name]: value });
+    this.setState({ [target.name]: value });
   };
   render() {
     return (
