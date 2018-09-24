@@ -8,7 +8,7 @@ Write your code in `index.html` (no peaking in the solution files for now!)
 
 <details>
   <summary><strong>Hint:</strong></summary>
-  <p>If you haven't build timers in JavaScript before you might want to look at <a href="https://developer.mozilla.org/en-US/docs/Web/API/WindowOrWorkerGlobalScope/setInterval">setInterval</a>
+  <p>If you haven't built timers in JavaScript before you might want to look at <a href="https://developer.mozilla.org/en-US/docs/Web/API/WindowOrWorkerGlobalScope/setInterval">setInterval</a>
 </details>
 
 ### Stretch goal
