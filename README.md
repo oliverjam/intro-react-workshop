@@ -1,5 +1,7 @@
 # FAC React Workshop
 
+**Disclaimer: this workshop is outdated and unmaintained. It hasn't changed since 2018, so I strongly recommend using my new [Learn React](https://github.com/oliverjam/learn-react) workshop instead.**
+
 An introductory workshop for FAC students to learn about React.
 
 ## Contents
